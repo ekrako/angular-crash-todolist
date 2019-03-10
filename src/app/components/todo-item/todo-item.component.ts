@@ -24,12 +24,12 @@ export class TodoItemComponent implements OnInit {
 
   onToggle(todo) {
     todo.completed = !todo.completed;
-    this.todoService.toggleCompleted(todo).subscribe(todo => {
-      console.log(todo);
-    });
+    this.todoService.toggleCompleted(todo);
   }
   onDelete(todo) {
-    console.log("delete");
-    this.deleteTodo.emit(todo);
+    console.log("delete: ", todo);
+
+    // this.todos = this.todos.filter(t => t.id !== todo.id);
+    this.todoService.deleteTodo(todo);
   }
 }
